@@ -5,7 +5,7 @@ echo ============================================
 echo.
 
 REM Check if pyinstaller is available
-where pyinstaller >nul 2>&1
+python -m PyInstaller --version >nul 2>&1
 if %errorlevel% neq 0 (
     echo [ERROR] PyInstaller not found. Install it first:
     echo   pip install pyinstaller
@@ -18,7 +18,7 @@ if exist build rmdir /s /q build
 if exist dist rmdir /s /q dist
 
 echo [2/3] Building SPP_Finisher.exe ...
-pyinstaller ^
+python -m PyInstaller ^
     --name "SPP_Finisher" ^
     --windowed ^
     --icon "assets/app_icon.png" ^
